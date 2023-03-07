@@ -42,12 +42,12 @@ import com.promise.Promise;
 public class Main {
     public static void main(String[] args) {
 
-        Promise.ContinualPromise<String, Integer> promise = new Promise.ContinualPromise<>(resolver -> {
+        Promise<String> promise = new Promise<>(resolver -> {
             resolver.resolve("32");
         });
         
         promise
-            .then(stringifiedNumber -> Integer.valueOf(stringifiedNumber))
+            .thenc(stringifiedNumber -> Integer.valueOf(stringifiedNumber))
             .then(number -> System.out.println(number));
 
     }
